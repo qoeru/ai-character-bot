@@ -58,7 +58,8 @@ def handle_message(message, chat_log):
 def append_interaction_to_chat_log(question, answer, chat_log):
     if chat_log is None:
         chat_log = character_description
-    return f'{chat_log}{restart_sequence} {question}{start_sequence}{answer}'
+    text = f'{restart_sequence}{question}{start_sequence}{answer}{chat_log}'
+    return text[-100:]
 
 if __name__ == '__main__':
     bot.infinity_polling()
